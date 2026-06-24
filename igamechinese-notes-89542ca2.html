@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>从稳定的入口开始 · 爱游戏</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(145deg, #fef2e0 0%, #fbd7b0 50%, #f7c29d 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+    }
+
+    .card {
+      max-width: 860px;
+      width: 100%;
+      background: #fffffffb;
+      backdrop-filter: blur(2px);
+      border-radius: 36px 36px 28px 28px;
+      box-shadow: 0 20px 40px -10px rgba(160, 80, 30, 0.18), 0 8px 16px -6px rgba(0, 0, 0, 0.04);
+      padding: 2.8rem 2.8rem 3.2rem;
+      transition: all 0.2s ease;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      font-weight: 550;
+      letter-spacing: -0.02em;
+      color: #3b2b1d;
+      margin-bottom: 0.25rem;
+      line-height: 1.2;
+    }
+
+    .sub {
+      display: inline-block;
+      font-size: 0.95rem;
+      font-weight: 420;
+      color: #7a5d44;
+      background: #f5e4d4;
+      padding: 0.3rem 1rem 0.4rem 1rem;
+      border-radius: 30px;
+      margin-top: 0.2rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .story-lead {
+      font-size: 1.24rem;
+      font-weight: 400;
+      line-height: 1.6;
+      color: #392d22;
+      background: #fcf6ed;
+      padding: 1.2rem 1.6rem;
+      border-radius: 28px;
+      margin: 1.2rem 0 1.6rem 0;
+      box-shadow: inset 0 1px 3px rgba(255, 235, 210, 0.7);
+    }
+
+    .story-lead strong {
+      font-weight: 540;
+      color: #9f5f2c;
+    }
+
+    p {
+      font-size: 1.04rem;
+      line-height: 1.7;
+      color: #34281d;
+      margin-bottom: 1.3rem;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem 1.4rem;
+      margin: 1.8rem 0 2rem 0;
+    }
+
+    .feature-item {
+      background: #f9efe4;
+      padding: 1.1rem 1.2rem;
+      border-radius: 28px;
+      transition: background 0.15s, box-shadow 0.15s;
+      box-shadow: 0 3px 8px rgba(150, 80, 30, 0.04);
+    }
+
+    .feature-item:hover {
+      background: #f5e3d0;
+      box-shadow: 0 6px 12px rgba(140, 70, 20, 0.06);
+    }
+
+    .feature-item h3 {
+      font-size: 1.2rem;
+      font-weight: 530;
+      color: #3b2515;
+      margin-bottom: 0.2rem;
+      letter-spacing: -0.01em;
+    }
+
+    .feature-item p {
+      font-size: 0.96rem;
+      margin-bottom: 0;
+      color: #4e3b2b;
+      line-height: 1.55;
+    }
+
+    .scene-note {
+      background: #f0e3d4;
+      padding: 1rem 1.6rem;
+      border-radius: 40px;
+      margin: 1.8rem 0 1.2rem 0;
+      font-size: 1rem;
+      color: #2f241b;
+      display: inline-block;
+    }
+
+    .faq-mini {
+      margin: 2rem 0 1.2rem 0;
+      border-top: 1px solid #eddccb;
+      padding-top: 1.4rem;
+    }
+
+    .faq-mini details {
+      margin-bottom: 0.6rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 40px;
+      background: #fbf5ed;
+    }
+
+    .faq-mini summary {
+      font-weight: 500;
+      color: #3b2b1d;
+      cursor: pointer;
+      padding: 0.2rem 0;
+      font-size: 1rem;
+    }
+
+    .faq-mini details p {
+      margin: 0.6rem 0 0.2rem 0;
+      font-size: 0.97rem;
+      color: #4e3b2b;
+    }
+
+    .closing {
+      margin-top: 1.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px solid #ede0d2;
+      font-size: 1rem;
+      color: #2d2219;
+      line-height: 1.6;
+    }
+
+    a {
+      color: #b56b34;
+      text-decoration: none;
+      font-weight: 520;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.15s, color 0.15s;
+      border-radius: 0;
+    }
+
+    a:hover {
+      border-bottom-color: #b56b34;
+      color: #874d24;
+    }
+
+    .btn-like-link {
+      display: inline-block;
+      background: #f5e2cf;
+      color: #3d2b1c;
+      padding: 0.45rem 1.4rem 0.55rem 1.4rem;
+      border-radius: 40px;
+      font-weight: 480;
+      font-size: 0.98rem;
+      border-bottom: none;
+      transition: background 0.15s, transform 0.1s;
+      margin-top: 0.4rem;
+    }
+
+    .btn-like-link:hover {
+      background: #edceb3;
+      border-bottom: none;
+      transform: scale(1.02);
+    }
+
+    @media (max-width: 620px) {
+      .card {
+        padding: 1.8rem 1.5rem 2.2rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+      .story-lead {
+        font-size: 1.1rem;
+        padding: 1rem 1.2rem;
+      }
+    }
+
+    @media (max-width: 420px) {
+      body {
+        padding: 1rem;
+      }
+      .card {
+        padding: 1.5rem 1rem 1.8rem;
+      }
+      h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="card">
+  <h1>爱游戏</h1>
+  <span class="sub">一个安静稳定的入口</span>
+
+  <div class="story-lead">
+    <strong>打开一个页面，</strong>有时不需要太多理由。一个干净、可依赖的起点，能让人更安心地了解某件事。<br>
+    <strong>爱游戏</strong> 正是这样的存在——它不喧哗，只提供一个稳定的信息界面。
+  </div>
+
+  <p>
+    很多人在寻找游戏相关内容时，会被杂乱的信息流或频繁变动的地址打断。<br>
+    而 <a href="https://igamechinese.com">爱游戏</a> 的思路很直接：保持一个长期可用的页面，让感兴趣的人能安静地了解、浏览，而不必在跳转中消耗耐心。
+  </p>
+
+  <p>
+    它不像一个传统门户，更像一篇可以随时翻开的笔记——没有刺眼的推广模块，也没有层层嵌套的菜单。从文字到版式，都偏向温和与清晰。
+  </p>
+
+  <div class="feature-grid">
+    <div class="feature-item">
+      <h3>📖 轻叙述</h3>
+      <p>页面内容围绕游戏相关话题展开，不堆砌关键词，重视可读性。适合慢慢看，而不是快速划过。</p>
+    </div>
+    <div class="feature-item">
+      <h3>🧭 稳定的锚点</h3>
+      <p>网址长期有效，结构简洁，适合作为书签或日常了解游戏资讯的固定参照。</p>
+    </div>
+    <div class="feature-item">
+      <h3>🎨 暖色阅读</h3>
+      <p>界面以低饱和暖调为主，配合圆角卡片，减少视觉压力。即便长时间浏览，眼睛也不容易疲劳。</p>
+    </div>
+    <div class="feature-item">
+      <h3>📂 内容聚焦</h3>
+      <p>页面专注提供有实质的信息，而不是大量链接聚合。每个段落都有它存在的理由。</p>
+    </div>
+  </div>
+
+  <div class="scene-note">
+    ✦ 适合的场景：日常浏览 · 查找参考 · 安静阅读
+  </div>
+
+  <div class="faq-mini">
+    <details>
+      <summary>这个页面有什么特别之处？</summary>
+      <p>它更像一个介绍页，而非功能型站点。主要目的是让人了解 <a href="https://igamechinese.com">爱游戏</a> 是什么、提供怎样的内容，同时保持低门槛的访问方式。</p>
+    </details>
+    <details>
+      <summary>内容会频繁更新吗？</summary>
+      <p>更新节奏以稳定为主，内容调整时会保持整体风格一致。不会出现突然的大幅变动，也不需要用户重新适应布局。</p>
+    </details>
+  </div>
+
+  <div class="closing">
+    <span>如果你对游戏相关话题感兴趣，不妨把 <a href="https://igamechinese.com">爱游戏</a> 当作一个安静的起点。它就在那里，不打扰，但随时可以翻开。</span>
+    <div style="margin-top: 1rem;">
+      <span class="btn-like-link">→ 了解爱游戏</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>
