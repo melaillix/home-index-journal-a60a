@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 专题介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: linear-gradient(135deg, #fbe9e0 0%, #f7d9c4 50%, #f0ccb5 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1.2rem;
+      line-height: 1.6;
+      color: #2e2a28;
+    }
+
+    .container {
+      max-width: 820px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(6px);
+      border-radius: 40px 40px 32px 32px;
+      padding: 2.8rem 2.2rem 2.4rem;
+      box-shadow: 0 16px 40px -8px rgba(140, 80, 50, 0.25);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 2.6rem;
+      padding-bottom: 1.8rem;
+      border-bottom: 2px dashed #edd7cb;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      color: #8b5a3c;
+      background: linear-gradient(145deg, #a06740, #7b4f32);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero .sub {
+      font-size: 1.05rem;
+      color: #7f675b;
+      font-weight: 350;
+      letter-spacing: 1px;
+      background: #f3e4db;
+      display: inline-block;
+      padding: 0.2rem 1.6rem;
+      border-radius: 40px;
+    }
+
+    .section-card {
+      background: #ffffffdc;
+      backdrop-filter: blur(2px);
+      border-radius: 28px;
+      padding: 1.8rem 1.8rem 2rem;
+      margin-bottom: 1.8rem;
+      box-shadow: 0 6px 14px rgba(110, 65, 40, 0.08);
+      border: 1px solid #f0dbd0;
+      transition: transform 0.1s ease, box-shadow 0.2s;
+    }
+
+    .section-card:last-of-type {
+      margin-bottom: 2rem;
+    }
+
+    .section-card:hover {
+      box-shadow: 0 10px 22px rgba(100, 60, 35, 0.12);
+    }
+
+    .section-card h2 {
+      font-size: 1.7rem;
+      font-weight: 420;
+      color: #7c4f34;
+      margin-bottom: 1rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 2px solid #f6ddd1;
+      display: inline-block;
+    }
+
+    .section-card p {
+      margin-bottom: 1rem;
+      font-size: 1.02rem;
+      color: #3a3330;
+    }
+
+    .section-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .btn-link {
+      display: inline-block;
+      background: #f3e0d4;
+      color: #633f2b;
+      padding: 0.55rem 1.6rem;
+      border-radius: 60px;
+      font-weight: 480;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s, box-shadow 0.15s;
+      border: 1px solid #dbbcaa;
+      font-size: 0.98rem;
+      letter-spacing: 0.4px;
+      margin-top: 0.3rem;
+    }
+
+    .btn-link:hover {
+      background: #d7b6a2;
+      color: #2f1f18;
+      box-shadow: 0 4px 10px rgba(130, 75, 45, 0.15);
+    }
+
+    .feature-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      margin-top: 1rem;
+    }
+
+    .feature-item {
+      flex: 1 1 180px;
+      background: #fcf6f1;
+      border-radius: 24px;
+      padding: 1.2rem 1.2rem 1.4rem;
+      border: 1px solid #f0ddd2;
+    }
+
+    .feature-item h3 {
+      font-size: 1.2rem;
+      font-weight: 460;
+      color: #7e553d;
+      margin-bottom: 0.4rem;
+    }
+
+    .feature-item p {
+      font-size: 0.95rem;
+      color: #4f4039;
+    }
+
+    .faq-mini {
+      background: #f5ebe4;
+      border-radius: 24px;
+      padding: 1.4rem 1.8rem;
+      margin: 1.8rem 0 1.2rem;
+    }
+
+    .faq-mini summary {
+      font-weight: 480;
+      font-size: 1.1rem;
+      color: #6a4a37;
+      cursor: pointer;
+      padding: 0.2rem 0;
+      list-style: none;
+    }
+
+    .faq-mini details p {
+      margin-top: 0.7rem;
+      color: #3d322d;
+      font-size: 0.98rem;
+      padding-left: 0.3rem;
+    }
+
+    .footer-note {
+      text-align: center;
+      padding-top: 1.8rem;
+      border-top: 2px dashed #e4cfc2;
+      margin-top: 1rem;
+    }
+
+    .footer-note p {
+      color: #675347;
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .signature {
+      font-size: 0.9rem;
+      color: #927a6c;
+      letter-spacing: 0.6px;
+    }
+
+    @media (max-width: 540px) {
+      .container {
+        padding: 1.8rem 1.2rem;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .section-card h2 {
+        font-size: 1.4rem;
+      }
+      .feature-grid {
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- hero 横幅 -->
+  <div class="hero">
+    <h1>爱游戏 · 再次相见</h1>
+    <div class="sub">杂志专题 · 温暖陪伴</div>
+  </div>
+
+  <!-- 背景说明：为什么再次访问 -->
+  <div class="section-card">
+    <h2>📖 重访的理由</h2>
+    <p>有些站点，像老朋友一样值得收藏和反复回来。<a href="https://igameindex.com" style="color:#7c4f34; font-weight:480; text-decoration:underline; text-underline-offset:3px;">爱游戏</a>就是这样一个安静的索引角落——它不追逐热点，不制造焦虑，只是把值得留意的游戏内容慢慢整理好。每次打开，你都会发现新的推荐、独立的视角，以及没有被算法裹挟的真诚。</p>
+    <p>也许你上一次访问是几周前，甚至更久。但没关系，好的内容会静静等待。收藏夹里的这个链接，值得你再次点开。</p>
+  </div>
+
+  <!-- 三段自然介绍：收藏 / 持续关注 / 日常陪伴 -->
+  <div class="section-card">
+    <h2>🔖 收藏 · 是一件温柔的事</h2>
+    <p>我们常把喜欢的页面放进书签，后来却很少再翻看。<strong>爱游戏</strong>希望打破这种遗忘——它不依赖推送，也不频繁打扰。把网站加入收藏夹，就像在书架上留一个位置给喜欢的杂志。当你想找些不一样的游戏内容，或只是想安静浏览时，它就在那里。</p>
+    <p>收藏是一种信任，而持续更新的内容会让这份信任变得轻盈。没有多余的广告弹窗，只有干净的文字和列表，以及一点点编辑的品味。</p>
+  </div>
+
+  <div class="section-card">
+    <h2>👀 持续关注 · 目光所及</h2>
+    <p>关注一个网站，有时候是关注它背后的兴趣脉络。<a href="https://igameindex.com" style="color:#7c4f34; font-weight:480; text-decoration:underline; text-underline-offset:3px;">爱游戏</a>的页面会慢慢生长，从独立游戏推介到经典回顾，从玩法拆解到文化随笔。如果你愿意隔段时间回来看一看，会察觉到它微妙的更新节奏——不喧哗，但一直有内容沉淀。</p>
+    <div class="feature-grid">
+      <div class="feature-item">
+        <h3>⏳ 慢更新</h3>
+        <p>不追求日更，每篇都经过筛选和梳理，保留阅读的余裕。</p>
+      </div>
+      <div class="feature-item">
+        <h3>🧩 多视角</h3>
+        <p>涵盖不同类型的游戏，不跟风，尊重个人口味。</p>
+      </div>
+      <div class="feature-item">
+        <h3>📚 可回溯</h3>
+        <p>历史推荐依然可查，没有时效性焦虑。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <h2>☕ 日常陪伴 · 不只是索引</h2>
+    <p>网站首页就像一本杂志的封面，每次打开都带着一点期待。无论是午休时随便翻翻，还是晚上安静地读两篇，<strong>爱游戏</strong>都试图提供一种不费力的陪伴。它不要求你注册、不索取数据，甚至不需要你记住复杂的导航——打开即用，关闭即走。</p>
+    <p>如果你也喜欢这种细水长流的阅读感，不妨把它的链接留在手边。下一次闲下来时，自然就会想回来看看。</p>
+  </div>
+
+  <!-- FAQ 摘要 (非必须但自然) -->
+  <div class="faq-mini">
+    <details>
+      <summary>❓ 一些你可能想问的</summary>
+      <p><strong>网站多久更新一次？</strong> 编辑依据个人节奏更新，有时一周两三次，有时稍久，但不会彻底停更。</p>
+      <p><strong>内容偏向哪类游戏？</strong> 以PC/主机独立游戏、经典作品、以及有话题性的作品为主，偶尔涉及手游或桌游。</p>
+      <p><strong>是否需要付费或注册？</strong> 完全免费，无需注册，也没有隐藏付费内容。</p>
+    </details>
+  </div>
+
+  <!-- 页尾访问提示 + 链接 -->
+  <div class="footer-note">
+    <p>如果你还没收藏，不妨现在就把 <a href="https://igameindex.com" class="btn-link">爱游戏</a> 加入书签。</p>
+    <p class="signature">下一次访问，也许就有新的发现。</p>
+  </div>
+</div>
+</body>
+</html>
